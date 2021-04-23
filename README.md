@@ -1,3 +1,53 @@
-# Por favor faça um Fork desse projeto!
+# API casa do código
+  Neste desafio preciso desenvolver uma API para suportar parte do funcionamento da casa do código.
+  A ideia é trabalhar o design do código, criando código que seja suficiente para a funcionalidade.
 
-## Está em dúvida de como fazer um Fork? Não tem problema! [Aqui tem uma explicação do que entendemos que você deve considerar!](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo)
+## Começando
+Para executar o projeto, será necessário instalar os seguintes programas:
+
+- [Java 11+](https://openjdk.java.net/projects/jdk/11/)
+- [Maven 3+](https://maven.apache.org/download.cgi)
+- [Postman](https://www.postman.com/downloads/) ou [Imsominia](https://insomnia.rest/download)
+- MySQL
+
+## Observação
+* Projeto usa ecossistema Spring
+* MySQL como banco de dados
+
+## Desenvolvimento
+
+* Para iniciar o desenvolvimento Tenha uma IDE(eclipse com STS) e clone o projeto do GitHub num diretório:
+
+```shell
+	cd "<seu diretório(workspace)>"
+	git clone https://github.com/fmchagas/orange-talents-04-template-casa-do-codigo.git
+```
+
+* Rode a aplicação
+
+```shell
+	cd "<diretório raiz da aplicação>"
+    ./mvnw spring-boot:run
+    ou ./mvnw spring-boot:start
+```
+
+* Pare a aplicação se usar start
+
+```shell
+    ctrl + c
+    ./mvnw spring-boot:stop
+```
+
+faça uma requisição para:
+http://localhost:8080/api/v1/autores
+
+```shell
+{
+    "nome":"Fernando",
+    "email":"fer@provedor.com",
+    "descricao":"Virado no Jiraya"
+}
+```
+
+* Um desafio extra para eu é adicionar documentação da api com springfox - caso aconteça
+vai ter um link para - [Documentação](http://www.localhost:8080/swagger-ui) 
