@@ -8,7 +8,7 @@ Para executar o projeto, será necessário instalar os seguintes programas:
 - [Java 11+](https://openjdk.java.net/projects/jdk/11/)
 - [Maven 3+](https://maven.apache.org/download.cgi)
 - [Postman](https://www.postman.com/downloads/) ou [Imsominia](https://insomnia.rest/download)
-- MySQL
+- MySQL(8.0.23)
 
 ## Observação
 * Projeto usa ecossistema Spring
@@ -27,8 +27,8 @@ Para executar o projeto, será necessário instalar os seguintes programas:
 
 ```shell
 	cd "<diretório raiz da aplicação>"
-    ./mvnw spring-boot:run
-    ou ./mvnw spring-boot:start
+	./mvnw spring-boot:run
+	ou ./mvnw spring-boot:start
 ```
 
 * Pare a aplicação se usar start
@@ -38,7 +38,7 @@ Para executar o projeto, será necessário instalar os seguintes programas:
     ./mvnw spring-boot:stop
 ```
 
-faça uma requisição para:
+faça uma requisição POST para:
 http://localhost:8080/api/v1/autores
 
 ```shell
