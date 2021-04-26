@@ -5,11 +5,14 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import br.com.fmchagas.api.shared.validation.UniqueField;
+
 public class AutorRequest {
 	@NotBlank
 	private String nome;
 	
 	@NotBlank @Email
+	@UniqueField(clazzEntity = Autor.class, fieldName = "email")
 	private String email;
 	
 	@NotBlank @Size(max = 400)
