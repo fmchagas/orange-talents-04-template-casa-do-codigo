@@ -6,6 +6,8 @@ import javax.persistence.Query;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+import org.springframework.util.Assert;
+
 public class UniqueFieldValidator implements ConstraintValidator<UniqueField, Object>{
 	@PersistenceContext private EntityManager em;
 	private Class<?> clazzEntity;
@@ -25,6 +27,8 @@ public class UniqueFieldValidator implements ConstraintValidator<UniqueField, Ob
 		query.setParameter("pValue", value);		
 		
 		int contador = (int) query.getResultStream().count();
+		
+		Assert.state(contador <= 1, "encontramos mais de um " + clazzEntity.getName() + " com o atributo " + fieldName + " = " + value + ", quantidade encontrada: " + contador);
 		
 		return contador < 1 ;
 	}
