@@ -10,6 +10,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.util.Assert;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
@@ -49,14 +51,14 @@ public class LivroRequest {
 	private LocalDateTime dataPublicacao;
 	
 	@NotNull @ExistsId(clazzEntity = Categoria.class, fieldName = "id")
-	private Long categoria_id;
+	private Long categoriaId;
 
 	@NotNull @ExistsId(clazzEntity = Autor.class, fieldName = "id")
-	private Long autor_id;
+	private Long autorId;
 
 	public LivroRequest(@NotBlank String titulo, @NotBlank  @Size(max = 500) String resumo, String sumario,
 			@NotNull @Min(20) BigDecimal valor, @NotNull @Min(100) Integer numeroPagina, @NotBlank String isbn,
-			@NotNull Long categoria_id, @NotNull Long autor_id) {
+			@NotNull Long categoriaId, @NotNull Long autorId) {
 
 		this.titulo = titulo;
 		this.resumo = resumo;
@@ -64,13 +66,16 @@ public class LivroRequest {
 		this.valor = valor;
 		this.numeroPagina = numeroPagina;
 		this.isbn = isbn;
-		this.categoria_id = categoria_id;
-		this.autor_id = autor_id;
+		this.categoriaId = categoriaId;
+		this.autorId = autorId;
 	}
 
 	public Livro toModel(AutorRepository autorRepository, CategoriaRepository categoriaRepository) {
-		Optional<Categoria> categoria = categoriaRepository.findById(categoria_id);
-		Optional<Autor> autor = autorRepository.findById(autor_id);
+		Optional<Categoria> categoria = categoriaRepository.findById(categoriaId);
+		Optional<Autor> autor = autorRepository.findById(autorId);
+		
+		Assert.state(!categoria.isEmpty(), "A categoria não existe no banco, categoriaId: " + categoriaId);
+		Assert.state(!autor.isEmpty() , "O autor não existe no banco, autorId: " + autorId);
 		
 		return new Livro(titulo, resumo, sumario, valor, numeroPagina, isbn, dataPublicacao, categoria.get(), autor.get());
 	}
