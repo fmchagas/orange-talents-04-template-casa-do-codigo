@@ -43,7 +43,7 @@ public class Livro {
 	@Column(length = 16, nullable = false)
 	private @NotBlank String isbn;
 	
-	private @NotNull @Future LocalDateTime dataPublicacao;
+	private @NotNull @Future LocalDateTime dataPublicacao = LocalDateTime.now();
 	
 	@ManyToOne
 	private Categoria categoria;
@@ -66,7 +66,6 @@ public class Livro {
 				this.valor = valor;
 				this.numeroPagina = numeroPagina;
 				this.isbn = isbn;
-				this.dataPublicacao = dataPublicacao;
 				this.categoria = categoria;
 				this.autor = autor;
 	}

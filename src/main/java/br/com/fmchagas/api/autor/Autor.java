@@ -30,7 +30,7 @@ public class Autor {
 	private @NotBlank @Size(max = 400) String descricao;
 	
 	@Column(name = "data_criacao", nullable = false)
-	private @NotNull LocalDateTime dataCriacao;
+	private @NotNull LocalDateTime dataCriacao = LocalDateTime.now();
 	
 	
 	/**
@@ -43,7 +43,6 @@ public class Autor {
 		this.nome = nome;
 		this.email = email;
 		this.descricao = descricao;
-		dataCriacao = LocalDateTime.now();
 	}
 
 	public String getNome() {
