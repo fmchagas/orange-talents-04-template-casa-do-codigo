@@ -86,4 +86,8 @@ public class Livro {
 	public BigDecimal getValor() {
 		return valor;
 	}
+
+	public Long getId() {
+		return id;
+	}
 }
