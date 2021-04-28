@@ -89,4 +89,20 @@ public class Livro {
 	public Long getId() {
 		return id;
 	}
+	
+	public String getResumo() {
+		return resumo;
+	}
+	
+	public String getNomeAutor() {
+		return autor.getNome();
+	}
+	
+	public String getDescricaoAutor() {
+		return autor.getDescricao();
+	}
+
+	public String getSumario() {
+		return sumario;
+	}
 }

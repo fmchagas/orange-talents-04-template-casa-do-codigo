@@ -52,4 +52,8 @@ public class Autor {
 	public String getEmail() {
 		return email;
 	}
+	
+	public String getDescricao() {
+		return descricao;
+	}
 }
