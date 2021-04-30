@@ -49,5 +49,5 @@ http://localhost:8080/api/v1/autores
 }
 ```
 
-* Um desafio extra para eu é adicionar documentação da api com springfox - caso aconteça
-vai ter um link para - [Documentação](http://www.localhost:8080/swagger-ui) 
+* Um desafio extra para eu é adicionar documentação da api com springfox -> localhost:8080/swagger-ui.html
+- [Documentação](http://localhost:8080/swagger-ui.html) 
