@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    db: 
+      image: mysql:latest
+      container_name: mysql
+      environment: 
+        #- MYSQL_DATABASE=casa_codigo
+        - MYSQL_ROOT_PASSWORD=root
+      volumes: 
+        - 'C:\Users\Fernando\volume_docker\mysql:/var/lib/mysql'
+      ports: 
+        - 3306:3306
+      networks: 
+        - production-network
+
+networks: 
+    production-network:
+        driver: bridge
